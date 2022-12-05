@@ -13,10 +13,16 @@ public:
 
 	DataStruct& operator=(const DataStruct&);
 	DataStruct operator+(const Sign&);
-	DataStruct& operator+=(const Sign&);
+	DataStruct& operator+=(DataStruct&,const DataStruct&);
 	DataStruct operator-(int);
 	DataStruct& operator-=(const Sign&);
 
-	void input(int);
-	void output();
+	friend std::ostream& operator<<(std::ostream&, DataStruct&);
+		
+	void birthdaySort();
+	void getBySurename();
+	void getByIndex();
+	void save();
+	void extract();
+
 };
