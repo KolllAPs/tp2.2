@@ -1,6 +1,8 @@
 #pragma once
 #include"sign.h"
 
+enum gr { less_ = 0, great_ };
+
 class DataStruct {
 private:
 	Sign* arr;
@@ -12,17 +14,17 @@ public:
 	~DataStruct();
 
 	DataStruct& operator=(const DataStruct&);
-	DataStruct operator+(const Sign&);
-	DataStruct& operator+=(DataStruct&,const DataStruct&);
-	DataStruct operator-(int);
-	DataStruct& operator-=(const Sign&);
+	DataStruct operator+(const Sign&); //st + sign
+	friend DataStruct& operator+=(DataStruct&, const DataStruct&); //st + st
+	DataStruct operator-(int); //удаление x последних
+	friend DataStruct& operator-=(DataStruct&, int); //удаление по индексу
 
 	friend std::ostream& operator<<(std::ostream&, DataStruct&);
-		
-	void birthdaySort();
-	void getBySurename();
-	void getByIndex();
-	void save();
-	void extract();
+
+	void birthdaySort(gr);
+	void getBySurename(std::string);
+	void getByIndex(int);
+	void save(std::string);
+	void extract(std::string);
 
 };

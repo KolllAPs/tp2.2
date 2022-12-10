@@ -3,8 +3,8 @@
 
 Sign::Sign() :name(""), surename(""), sign("") {}
 
-Sign::Sign(std::string nm, std::string srnm, std::string sgn, int brthd[]):
-name(nm), surename(srnm), sign(sgn) {
+Sign::Sign(std::string nm, std::string srnm, std::string sgn, int brthd[]) :
+	name(nm), surename(srnm), sign(sgn) {
 	for (int i = 0; i < 3; i++) {
 		birthday[i] = brthd[i];
 	}
@@ -18,8 +18,6 @@ Sign::Sign(const Sign& signObject) {
 		this->birthday[i] = signObject.birthday[i];
 	}
 }
-
-Sign::~Sign() {}
 
 void Sign::setName() {
 	std::cin >> this->name;
@@ -39,6 +37,16 @@ void Sign::setBirthday() {
 	}
 }
 
+void Sign::setNameArg(std::string n) { this->name = n; }
+void Sign::setSurnameArg(std::string s) { this->surename = s; }
+void Sign::setSignArg(std::string sig) { this->sign = sig; }
+void Sign::setBirthArg(int b[3]) {
+	for (int i = 0; i < 3; i++)
+		this->birthday[i] = b[i];
+}
+
+
+
 std::string& Sign::getName() {
 	return name;
 }
@@ -51,12 +59,8 @@ std::string& Sign::getSign() {
 	return sign;
 }
 
-int& Sign::getBithday() {// Подумай надо ли оно тебе
-	int birthdayCopy[3] = { 0 };
-	for (int i = 0; i < 3; i++) {
-		birthdayCopy[i] = birthday[i];
-	}
-	return* birthdayCopy;
+int Sign::getBirthday(int i) {
+	return birthday[i];
 }
 
 Sign& Sign::operator=(const Sign& signObject) {
@@ -66,5 +70,5 @@ Sign& Sign::operator=(const Sign& signObject) {
 	for (int i = 0; i < 3; i++) {
 		this->birthday[i] = signObject.birthday[i];
 	}
+	return *this;
 }
-
