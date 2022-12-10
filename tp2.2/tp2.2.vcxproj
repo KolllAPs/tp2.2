@@ -128,10 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="datastruct.h" />
+    <ClInclude Include="readfile.h" />
     <ClInclude Include="sign.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="datastruct.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="readfile.cpp" />
     <ClCompile Include="sign.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
